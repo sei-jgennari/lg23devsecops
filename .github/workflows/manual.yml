@@ -14,6 +14,10 @@ jobs:
           - ubuntu-18.04
         python-version: 
           - 3.9
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
     steps:
       - name: 'Set up Python ${{ matrix.python-version }}'
         uses: actions/setup-python@v2
@@ -41,6 +45,7 @@ jobs:
         uses: github/codeql-action/init@v2
         with:
           languages: python
+        
           
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
